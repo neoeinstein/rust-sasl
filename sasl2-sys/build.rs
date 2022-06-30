@@ -120,6 +120,7 @@ fn build_sasl(metadata: &Metadata) {
     if metadata.host != metadata.target {
         configure_args.push(format!("--host={}", metadata.target));
     }
+    configure_args.push(format!("--build={}", metadata.host));
     cmd(src_dir.join("configure"), &configure_args)
         .dir(&src_dir)
         .run()
